@@ -1,0 +1,153 @@
+{% load static %}
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+        <link href="https://fonts.googleapis.com/css?family=Lato:900i,700" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        {% block title %}{% endblock%}
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'trs1.ico' %}" />
+</head>
+<body>
+  <script>
+    function validateForm(){
+      var name = document.forms["modal-frm"]["name"].value;
+      var patt = /[0-9]/i;
+      var result = name.match(patt);
+      var email = document.forms["modal-frm"]["email"].value;
+      if (name == "") {
+    document.getElementById("modal-name").style.display = 'block';
+    document.getElementById("modal-name").innerHTML='The name field cannot be empty.';
+    return false;
+    }
+    if(!(result=="")){
+      document.getElementById("modal-name").style.display = 'block';
+      document.getElementById("modal-name").innerHTML='Name cannot contain numbers';
+      return false;
+    }
+    
+    }
+  </script>
+        <style>
+                *{
+                font-family: 'Lato', sans-serif;
+                font-weight: 700;
+                font-style: bold;
+                }
+                input:focus,textarea:focus,select:focus,textarea:focus,input:hover,button:focus {
+                 outline: none;
+                }
+                body{
+                background: url('{% static "bg2.jpg" %}');
+                background-size: cover;
+                background-repeat:no-repeat;
+                }
+                .nav{
+                  padding-bottom: 1px;
+                }
+              .navbrand
+              {
+                background-color: white; 
+                color: #000000;
+                font-size: 35px;
+                font-family: 'Lato', sans-serif;
+                font-weight: 900;
+                font-style: italic;
+              }
+              .navbrand a
+              {
+                color: #000000;
+              }
+              .navbrand a:hover{
+                text-decoration: none;
+                -webkit-text-fill-color: white;
+                -webkit-text-stroke: 1px black;
+              }
+              .navigation
+              {
+                background-color: white; 
+                color: #000000;
+                font-size: 22px;
+                font-family: 'Lato', sans-serif;
+                font-weight: 700;
+                font-style: bold;
+                padding-top: 1%
+              }
+              .navigation a
+              {
+                color: #000000;
+              }
+              .navigation a:hover{
+                text-decoration: none;
+                -webkit-text-fill-color: white;
+                -webkit-text-stroke: 1px black;
+              }
+              .info-card{
+                background: rgba(0, 0, 0,0.8);
+                text-align: center;
+                margin-top: 100px;
+                color: white;
+                padding: 70px 0;
+                border-radius: 10px;
+              }
+              .btn{
+                color:white;
+                padding:10px;
+                border: 2px solid white;
+                background: none;
+                border-radius: 15px;
+                outline:none;
+              }
+              .btn:hover{
+                color:black;
+                padding:10px;
+                border: 2px solid black;
+                background: white;
+              }
+              .btn:active{
+                box-shadow:none;
+                outline:none;
+              }
+              .sub{
+                color:black;
+                border: 2px solid black;
+                background: white;
+                padding:10px;
+                border-radius: 15px;
+              }
+              .sub:hover{
+                color:white;
+                padding:10px;
+                border: 2px solid white;
+                background: black;
+                border-radius: 15px;
+              }
+              .img-res{
+            width: 400px;
+            height: 300px;
+            background-image: url('{% static "" %}{{img}}');
+            background-repeat: no-repeat;
+            background-size: 400px 300px;
+            margin-left: 15px;
+            border-radius: 10px;
+        }
+      #main_frm input[type=text],select,select:hover{
+  border: none;
+  outline: none !important;
+  background: rgba(0, 0, 0,0);
+  color:white;
+}
+#main_frm input[type=text]{
+  border-bottom: 1px solid white;
+}
+option{
+  color:black;
+}
+              </style>
+  {% block content %}{% endblock %}
+</body>
+</html>
